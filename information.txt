@@ -1,0 +1,97 @@
+
+# Create virtual environment
+## using venv
+python3 -m venv dev-env
+### eg Steps
+python -m venv myemailenv
+.\myemailenv\Scripts\activate
+
+## using virtualenv
+### Steps
+pip install virtualenv
+venvironment\Scripts\activate
+deactivate
+
+# django commands
+### Normal commands
+python -m django --version
+python manage.py runserver
+python manage.py runserver 8080
+
+python manage.py makemigrations 
+python manage.py migrate
+
+
+
+
+### install django in env
+pip install django
+### create Project
+django-admin startproject trackEmails .
+### create app
+python manage.py startapp emailtrackingApp
+
+### createsuperuser
+python manage.py createsuperuser
+
+
+<!-- In project directory -->
+# """urls.py"""
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path("polls/", include("polls.urls")),
+    path("admin/", admin.site.urls),
+]
+
+# """setting.py"""
+INSTALLED_APPS = [
+    "emailtrackingApp.apps.emailtrackingAppConfig",
+    or , "emailtrackingApp",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+]
+
+
+<!-- In app diectory -->
+# """urls.py"""
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path("", views.index, name="index"),
+]
+
+# """admin.py"""
+
+from django.contrib import admin
+from .models import Question
+admin.site.register(Question)
+
+
+# link useful
+https://mailtrap.io/blog/django-send-email/ 
+
+https://www.tutorialspoint.com/django/django_sending_emails.htm
+https://opensource.com/article/22/12/django-send-emails-smtp
+django documention on smtp = https://docs.djangoproject.com/en/4.2/topics/email/ 
+https://www.geeksforgeeks.org/setup-sending-email-in-django-project/ 
+
+
+Youtube videos
+html 
+https://www.youtube.com/watch?v=xNqnHmXIuzU 
+https://www.youtube.com/watch?v=iGPPhzhXBFg 
+https://www.youtube.com/watch?v=tZ_YVlrMGgg 
+
+
+backend 
+https://www.youtube.com/watch?v=Eq-yg1C0v5Q 
+
+
